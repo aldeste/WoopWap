@@ -32,7 +32,7 @@
     "ios": "cordova run ios",
     "prepare": "node config && webpack && cordova prepare",
     "build": "node config && cross-env NODE_ENV=production webpack --color --progress && cordova build",
-    "start": "node config && HOST=0.0.0.0 webpack-dev-server",
+    "start": "node config && cross-env HOST=0.0.0.0 webpack-dev-server",
     "test": "jest"
   },
   "keywords": [],

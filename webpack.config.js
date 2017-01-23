@@ -28,8 +28,14 @@ const common = {
         loader: 'babel-loader?cacheDirectory',
         include: PATHS.src,
       },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=10000' },
-      { test: /\.svg/, loader: 'svg-url-loader?limit=1024' },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=10000'
+      },
+      {
+        test: /\.svg/,
+        loader: 'svg-url-loader?limit=1024'
+      },
     ],
   },
   plugins: [
@@ -37,7 +43,6 @@ const common = {
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
     }),
-    new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
   ],
 };
 
@@ -65,6 +70,7 @@ if (ENV === 'development') {
   module.exports = merge(common, {
     devtool: false,
     plugins: [
+      new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
       new webpack.optimize.UglifyJsPlugin({
         compress: { warnings: false },
         comments: false,

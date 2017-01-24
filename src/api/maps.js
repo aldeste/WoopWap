@@ -8,5 +8,7 @@ export function fetchLocation(address) {
     const a = address.split(' ').join('+');
     const url = `${GEO_URL}json?address=${a}&key=${API_KEY}`;
 
-    fetch(url).then(response => response.json()).then(e => console.log(e));
+    return fetch(url)
+    .then(response => response.json())
+    .then(resp => resp.results[0].geometry.location)
 }

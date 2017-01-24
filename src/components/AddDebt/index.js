@@ -31,11 +31,15 @@ class AddDebt extends Component {
         <div className={style.checkboxWrapper}>
           <div className={style.box}>
             <label htmlFor="com">Organisation</label>
-            <input type="checkbox" name="company" id="com" value="Org" />
+            <input type="radio" name="nameOrCompany" id="com" value="company" checked={this.state.nameOrCompany === 'company'}
+              onChange={event => this.handleInputChange(event)}
+            />
           </div>
           <div className={style.box}>
             <label htmlFor="per">Person</label>
-            <input type="checkbox" name="person" id="per" value="Person" />
+            <input type="radio" name="nameOrCompany" id="per" value="person" checked={this.state.nameOrCompany === 'person'}
+              onChange={event => this.handleInputChange(event)}
+            />
           </div>
         </div>
 

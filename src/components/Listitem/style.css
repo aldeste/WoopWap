@@ -6,12 +6,6 @@
     font-size: 1.1em;
     justify-content: space-between;
 }
-.item p:first-child{
-    width:80%;
-    text-align: left;
-}
 .item p:last-child{
-    width:20%;
-    text-align: right;
     border-top: 1px solid var(--neutral);
 }

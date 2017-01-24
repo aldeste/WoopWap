@@ -8,7 +8,6 @@ class Listitem extends Component {
       <div className={style.item}>
         <p>{this.props.address}</p><p>{this.props.price}</p>
       </div>
-      
     );
   }
 }

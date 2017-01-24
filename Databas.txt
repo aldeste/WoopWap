@@ -1,0 +1,30 @@
+x-www-form-urlencoded header måste finnas för att php ska fatta params
+
+borrowers:
+url: http://nuwn.net/schoolapi/borrower.php
+för att lägga till borrower: 
+	skicka {"name": "jake", "address": "thisstreet 15", "city": "malmö" }
+för att lista (just nu):
+	ex. http://nuwn.net/schoolapi/borrower.php?name=jake
+	(hur och vilken data ni vill ha får duskuteras fram)
+	all data returnas.
+
+debt:
+url:  http://nuwn.net/schoolapi/debt.php
+för att lägga till:
+	POST
+	http://nuwn.net/schoolapi/debt.php?insert
+	data: {borrower, debtGiver, loanDate, dueDate, amount, reward}
+för att uppdatera:
+	POST
+	http://nuwn.net/schoolapi/debt.php?update
+	data: {det ni vill ha uppdaterat}
+för att lista (just nu):
+	GET
+	http://nuwn.net/schoolapi/debt.php?param=value (alla params funkar samt multiple params)
+	
+
+
+
+
+

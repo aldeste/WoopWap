@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import style from './style.css';
 
 class Listitem extends Component {
@@ -10,5 +10,10 @@ class Listitem extends Component {
     );
   }
 }
+
+Listitem.propTypes = {
+  address: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+};
 
 export default Listitem;

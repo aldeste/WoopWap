@@ -1,0 +1,31 @@
+.logo {
+  fill: var(--background);
+  height: 100%;
+  width: 100%;
+}
+
+.background {
+  fill: var(--accent);
+}
+
+.eye,
+.background {
+  animation: blink linear 5s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+@keyframes blink{
+  0% {
+    transform: scaleY(1);
+  }
+  88% {
+    transform: scaleY(1);
+  }
+  90% {
+    transform: scaleY(0.2);
+  }
+  91% {
+    transform: scaleY(1);
+  }
+}

@@ -12,6 +12,7 @@ class AddDebt extends Component {
       reward: '',
     }
   }
+
   handleInputChange(event) {
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -29,11 +30,11 @@ class AddDebt extends Component {
 
         <div className={style.checkboxWrapper}>
           <div className={style.box}>
-            <label for="com">Organisation</label>
+            <label htmlFor="com">Organisation</label>
             <input type="checkbox" name="company" id="com" value="Org" />
           </div>
           <div className={style.box}>
-            <label for="per">Person</label>
+            <label htmlFor="per">Person</label>
             <input type="checkbox" name="person" id="per" value="Person" />
           </div>
         </div>
@@ -44,7 +45,7 @@ class AddDebt extends Component {
           type="text"
           name="idNumber"
           value={this.state.idNumber}
-          onChange={() => this.handleInputChange}
+          onChange={event => this.handleInputChange(event)}
           required
         />
 
@@ -54,7 +55,7 @@ class AddDebt extends Component {
           type="text"
           name="name"
           value={this.state.name}
-          onChange={() => this.handleInputChange}
+          onChange={event => this.handleInputChange(event)}
         />
 
         <label className={style.label}>Email</label>
@@ -64,7 +65,7 @@ class AddDebt extends Component {
           name="email"
           required
           value={this.state.email}
-          onChange={() => this.handleInputChange}
+          onChange={event => this.handleInputChange(event)}
         />
 
         <label className={style.label}>Borrowers Name</label>
@@ -74,7 +75,7 @@ class AddDebt extends Component {
           name="borrowersName"
           required
           value={this.state.borrowersName}
-          onChange={() => this.handleInputChange}
+          onChange={event => this.handleInputChange(event)}
         />
 
         <label className={style.label}>Borrowers Adress</label>
@@ -84,27 +85,17 @@ class AddDebt extends Component {
           name="borrowersAdress"
           required
           value={this.state.borrowersAdress}
-          onChange={() => this.handleInputChange}
+          onChange={event => this.handleInputChange(event)}
         />
 
-        <label className={style.label}>Loan startdate</label>
-        <input
-          className={style.input}
-          type="date"
-          name="startDate"
-          required
-          value={this.state.startDate}
-          onChange={() => this.handleInputChange}
-        />
-
-        <label className={style.label}>Loan enddate</label>
+        <label className={style.label}>Loan expired</label>
         <input
           className={style.input}
           type="date"
           name="endDate"
           required
           value={this.state.endDate}
-          onChange={() => this.handleInputChange}
+          onChange={event => this.handleInputChange(event)}
         />
 
         <label className={style.label}>Amount</label>
@@ -114,7 +105,7 @@ class AddDebt extends Component {
           name="amount"
           required
           value={this.state.amount}
-          onChange={() => this.handleInputChange}
+          onChange={event => this.handleInputChange(event)}
         />
 
         <label className={style.label}>Reward</label>
@@ -124,7 +115,7 @@ class AddDebt extends Component {
           name="reward"
           required
           value={this.state.reward}
-          onChange={() => this.handleInputChange}
+          onChange={event => this.handleInputChange(event)}
         />
 
         <input className={style.submit} type="submit" value="Submit" />

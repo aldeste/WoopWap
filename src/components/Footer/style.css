@@ -11,8 +11,10 @@
 
 .tab {
   color: var(--background);
+  padding: 1.5rem;
+  transition: transform 150ms ease-out;
 }
 
-.pushing {
+.active {
   transform: scale(0.8);
 }

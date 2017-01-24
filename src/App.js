@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Listitem from './components/Listitem';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Maps from './components/Map';
+// import Maps from './components/Map';
 import AddDebt from './components/AddDebt';
 
 class App extends Component {
@@ -24,8 +24,8 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Map/>        
-        {
+        {/* <Map/> */}
+        {this.state.route === 'home' &&
           this.state.data.map((list, i) => (
             <Listitem
               key={i}
@@ -35,8 +35,15 @@ class App extends Component {
             />
           ))
         }
-        <AddDebt />
-        <Footer onTap={route => this.changeRoute(route)}/>
+        {this.state.route === 'add' &&
+          <AddDebt />
+        }
+        <Footer
+          onTap={route => this.changeRoute(route)}
+          routes={[{text: 'Add stuff', route: 'add'},
+            {text: 'Browse', route: 'home'}]}
+          hide={this.state.route}
+        />
       </div>
     );
   }

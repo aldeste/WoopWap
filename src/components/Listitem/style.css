@@ -2,14 +2,14 @@
 
 .item {
     display: flex;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #c0c0c0;
     padding: 0.4em;
     font-weight: 600;
     font-size: 1.1em; 
     font-family: 'Roboto', sans-serif;
 }
 .item:first-child {
-    border-top: 1px solid grey;
+    border-top: 1px solid #c0c0c0;
 }
 .item p:first-child{
     width:80%;

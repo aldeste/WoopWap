@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Tappable from 'react-tappable';
 import style from './style.css';
+import {fetchLocation} from '../../api/maps';
 
 class Footer extends Component {
   render() {

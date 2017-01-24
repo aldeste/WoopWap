@@ -4,10 +4,10 @@ import Listitem from './components/Listitem';
 class App extends Component {
   state = {
     data: [
-      { _id: 1, name: 'Mimi Lundberg', price: 334e4, adress: 'Nybergsgatan 6B 1202, 11445 STOCKHOLM' },
-      { _id: 2, name: 'Alexander Deste', price: 105e2, adress: 'Kämnärsvägen 67Y, 22646 LUND' },
-      { _id: 3, name: 'Patric Keisala', price: 196e4, adress: 'Sävstaholmsgatan 15, 21224 MALMÖ' },
-      { _id: 4, name: 'Sandra Filipsson', price: 137e5, adress: 'Åkersnäsgatan 1B, 21236 MALMÖ' },
+      { _id: 1, name: 'Mimi Lundberg', price: 334e4, address: 'Nybergsgatan 6B 1202, 11445 STOCKHOLM' },
+      { _id: 2, name: 'Alexander Deste', price: 105e2, address: 'Kämnärsvägen 67Y, 22646 LUND' },
+      { _id: 3, name: 'Patric Keisala', price: 196e4, address: 'Sävstaholmsgatan 15, 21224 MALMÖ' },
+      { _id: 4, name: 'Sandra Filipsson', price: 137e5, address: 'Åkersnäsgatan 1B, 21236 MALMÖ' },
       ]
   }
 
@@ -18,7 +18,7 @@ class App extends Component {
           this.state.data.map(list => (
             <Listitem
               name={list.name}
-              adress={list.adress}
+              address={list.address}
               price={`${list.price} kr`}
             />
           ))

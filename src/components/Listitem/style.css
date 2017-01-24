@@ -1,18 +1,12 @@
 .item {
     display: flex;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--neutral);
     padding: 0.4em;
     font-weight: 600;
     font-size: 1.1em;
+    justify-content: space-between;
 }
+
 .item:first-child {
-    border-top: 1px solid grey;
-}
-.item p:first-child{
-    width:80%;
-    text-align: left;
-}
-.item p:last-child{
-    width:20%;
-    text-align: right;
+    border-top: 1px solid var(--neutral);
 }

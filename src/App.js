@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import Tappable from 'react-tappable';
-import Listitem from './components/Listitem';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Maps from './components/Map';
 import AddDebt from './components/AddDebt';
+import Home from './components/Home';
 import data from './dummydata';
 
 import { geolocationFallback } from './api/maps';
 
 class App extends Component {
-  state = {
-    route: 'home',
-    data,
-  };
+  state = { route: 'home', data };
 
   changeRoute(route) {
     this.setState({ route });
@@ -21,22 +16,6 @@ class App extends Component {
 
   setUserPosition(position) {
     this.setState({ position });
-  }
-
-  calculateDistance(pos1, pos2) {
-    const lat1 = pos1.lat;
-    const lng1 = pos1.lng;
-    const lat2 = pos2.lat;
-    const lng2 = pos2.lng;
-    const R = 6371; // Radius of the earth in km
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLng = (lng2 - lng1) * Math.PI / 180;
-    const a =
-       0.5 - Math.cos(dLat)/2 +
-       Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-       (1 - Math.cos(dLng))/2;
-
-    return R * 2 * Math.asin(Math.sqrt(a));
   }
 
   componentWillMount() {
@@ -55,7 +34,7 @@ class App extends Component {
             }),
         )
         .catch(() => {
-          this.setUserPosition({ lat: 59.334591, lng: 18.063240 })
+          this.setUserPosition({ lat: 59.334591, lng: 18.063240 });
         }),
     );
   }
@@ -65,31 +44,8 @@ class App extends Component {
       <div>
         <Header />
         {
-          this.state.position &&
-          (
-            <Maps
-              width={'100vw'}
-              height={'6rem'}
-              center={this.state.position}
-              markers={[ this.state.position ]}
-            />
-          )
-        }
-        {
           this.state.route === 'home' &&
-          this.state.position &&
-          this.state.data
-          .map(entry => Object.assign({ distance: this.calculateDistance(this.state.position, entry.location) }, entry))
-          .sort((a, b) => a.distance - b.distance)
-          .map((list, i) => (
-            <Tappable key={i}>
-              <Listitem
-                distance={`${list.distance.toFixed(2)}km`}
-                address={list.address}
-                price={`${list.price} kr`}
-              />
-            </Tappable>
-          ))
+            <Home data={this.state.data} position={this.state.position} />
         }
         {this.state.route === 'add' && <AddDebt />}
         <Footer
@@ -105,3 +61,27 @@ class App extends Component {
   }
 }
 export default App;
+//   (
+//     <Maps
+//       width={'100vw'}
+//       height={'6rem'}
+//       center={this.state.position}
+//       markers={[ this.state.position ]}
+//     />
+//   )
+// }
+// {
+//   this.state.position &&
+//   this.state.data
+//   .map(entry => Object.assign({ distance: this.calculateDistance(this.state.position, entry.location) }, entry))
+//   .sort((a, b) => a.distance - b.distance)
+//   .map((list, i) => (
+//     <Tappable key={i}>
+//       <Listitem
+//         distance={`${list.distance.toFixed(2)}km`}
+//         address={list.address}
+//         price={`${list.price} kr`}
+//       />
+//     </Tappable>
+//   ))
+// }

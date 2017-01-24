@@ -52,5 +52,7 @@
       <key>NSAllowsArbitraryLoads</key>
       <true/>
     </dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Sort jobs according to your location</string>
   </dict>
 </plist>

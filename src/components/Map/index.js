@@ -6,7 +6,6 @@ class Maps extends Component {
   static defaultProps = {
     center: { lat: 59.938043, lng: 30.337157 },
     zoom: 14,
-    greatPlaceCoords: { lat: 59.724465, lng: 30.080121 },
   };
 
   render() {
@@ -83,7 +82,7 @@ class Maps extends Component {
               ],
             }
           }
-          defaultCenter={this.props.center}
+          center={this.props.center}
           defaultZoom={this.props.zoom}
         >
           {this.props.markers.map((e, i) =>

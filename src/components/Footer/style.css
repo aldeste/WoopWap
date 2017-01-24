@@ -12,3 +12,7 @@
 .tab {
   color: var(--background);
 }
+
+.pushing {
+  transform: scale(0.8);
+}

@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import style from './style.css';
 import GoogleMap from 'google-map-react';
+import Marker from './Marker';
 
 class Maps extends Component {
   static defaultProps = {
@@ -86,7 +86,9 @@ class Maps extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          {this.props.children}
+          {this.props.markers.map((e, i) =>
+            <Marker key={i} lat={e.lat} lng={e.lng} text={'A'}/>)
+          }
         </GoogleMap>
       </div>
     );

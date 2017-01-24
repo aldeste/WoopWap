@@ -24,7 +24,12 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Maps width={'100vw'} height={'6rem'}/>
+        <Maps
+          width={'100vw'}
+          height={'6rem'}
+          center={{lat: 59.955413, lng: 30.337844}}
+          markers={[{lat: 59.955413, lng: 30.337844}]}
+        />
         {this.state.route === 'home' &&
           this.state.data.map((list, i) => (
             <Listitem

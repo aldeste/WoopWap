@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Listitem from './components/Listitem';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import Maps from './components/Map';
 
 class App extends Component {
   state = {
@@ -23,6 +23,7 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <Map/>        
         {
           this.state.data.map((list, i) => (
             <Listitem

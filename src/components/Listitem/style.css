@@ -1,15 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 .item {
     display: flex;
-    border-bottom: 1px solid #c0c0c0;
+    border-bottom: 1px solid var(--neutral);
     padding: 0.4em;
     font-weight: 600;
-    font-size: 1.1em; 
-    font-family: 'Roboto', sans-serif;
-}
-.item:first-child {
-    border-top: 1px solid #c0c0c0;
+    font-size: 1.1em;
+    justify-content: space-between;
 }
 .item p:first-child{
     width:80%;
@@ -18,4 +13,5 @@
 .item p:last-child{
     width:20%;
     text-align: right;
+    border-top: 1px solid var(--neutral);
 }

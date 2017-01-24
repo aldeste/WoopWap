@@ -1,0 +1,14 @@
+.header {
+    min-height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: var(--accent);
+}
+
+.logo {
+    padding: 3px 10px;
+    max-width: 59px;
+    margin-right: 15px;
+}

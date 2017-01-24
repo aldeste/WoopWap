@@ -28,14 +28,8 @@ const common = {
         loader: 'babel-loader?cacheDirectory',
         include: PATHS.src,
       },
-      {
-        test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=10000'
-      },
-      {
-        test: /\.svg/,
-        loader: 'svg-url-loader?limit=1024'
-      },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=10000' },
+      { test: /\.svg/, loader: 'svg-url-loader?limit=1024' },
     ],
   },
   plugins: [
@@ -44,6 +38,11 @@ const common = {
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
     }),
   ],
+  performance: {
+    maxAssetSize: 50000,
+    maxEntrypointSize: 100000,
+    hints: 'warning',
+  },
 };
 
 if (ENV === 'development') {

@@ -17,8 +17,9 @@ class App extends Component {
       <div>
         <Header />
         {
-          this.state.data.map(list => (
+          this.state.data.map((list, i) => (
             <Listitem
+              key={i}
               name={list.name}
               address={list.address}
               price={`${list.price} kr`}

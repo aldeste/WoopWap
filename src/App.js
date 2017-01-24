@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Listitem from './components/Listitem';
+import Header from './components/Header';
 
 class App extends Component {
   state = {
@@ -14,6 +15,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header />
         {
           this.state.data.map(list => (
             <Listitem

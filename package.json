@@ -23,8 +23,10 @@
     "cross-env": "^3.1.4",
     "css-loader": "latest",
     "elementtree": "^0.1.6",
+    "file-loader": "^0.9.0",
     "replace": "^0.3.0",
     "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
     "webpack-merge": "latest"
   },
   "scripts": {

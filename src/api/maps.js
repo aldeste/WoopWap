@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-let apiKey = 'AIzaSyAgTDmKOjvYu4i_-aFOh4bTM7lQFCamEZs';
-let geoURL = 'https://maps.googleapis.com/maps/api/geocode/';
+const apiKey = 'AIzaSyAgTDmKOjvYu4i_-aFOh4bTM7lQFCamEZs';
+const geoURL = 'https://maps.googleapis.com/maps/api/geocode/';
 
-export function fetchLocation(adress) {
-        adress = JSON.stringify(adress);
-        let theURL = geoURL+'json?adress='+adress+'&key='+apiKey;
-        console.log(theURL);
-    }
+export function fetchLocation(address) {
+    const a = address.split(' ').join('+');
+    const url = `${geoURL}json?address=${a}&key=${apiKey}`;
+
+    fetch(url).then(response => response.json()).then(e => console.log(e));
+}

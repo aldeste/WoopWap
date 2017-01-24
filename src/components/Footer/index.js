@@ -8,6 +8,7 @@ class Footer extends Component {
       <footer className={style.nav}>
         <Tappable
           className={style.tab}
+          style={{active: style.pushing}}
           onTap={() => this.props.onTap('placeholder')}>
           This is placeholder
         </Tappable>

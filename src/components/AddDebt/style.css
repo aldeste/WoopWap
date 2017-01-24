@@ -2,15 +2,20 @@
     display: flex;
     flex-flow: column;
     width: 100vw;
-    padding: 0px 20px;
+    padding: 0px 10px;
     margin-bottom: 10vh;
+    font-weight: 200;
+    font-size: 18px;
 }
 
 .input {
-    padding: 10px;
-    margin: 5px;
-    font-size: 21px;
+    padding: 13px;
+    margin: 4px 0 20px 0;
+    font-weight: 200;
+    font-size: 18px;
+    border: 1px black solid;
     outline: none;
+    border-radius: 3px;
 }
 
 .submit {
@@ -21,12 +26,18 @@
     padding: 10px;
     margin-top: 15px;
     outline: none;
+    font-size: 21px;
 }
 
 .submit:active {
     background: var(--main2);
 }
 
-.booleanWrapper {
+.checkboxWrapper {
     display: flex;
+    margin-bottom: 20px;
+    justify-content: space-around;
+}
+
+.label {
 }

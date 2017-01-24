@@ -5,7 +5,9 @@ class Listitem extends Component {
   render() {
     return (
       <div className={style.item}>
-        <p>{this.props.address}</p><p>{this.props.price}</p>
+        <p className={style.address}>{this.props.address}</p>
+        <p>{this.props.price}</p>
+        <p className={style.distance}>{this.props.distance}</p>
       </div>
     );
   }

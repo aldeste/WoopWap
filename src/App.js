@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Listitem from './components/Listitem';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AddDebt from './components/AddDebt';
 
 class App extends Component {
   state = {
@@ -32,6 +33,7 @@ class App extends Component {
             />
           ))
         }
+        <AddDebt />
         <Footer onTap={route => this.changeRoute(route)}/>
       </div>
     );

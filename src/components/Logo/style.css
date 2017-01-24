@@ -16,9 +16,6 @@
 }
 
 @keyframes blink{
-  0% {
-    transform: scaleY(1);
-  }
   88% {
     transform: scaleY(1);
   }
@@ -26,6 +23,12 @@
     transform: scaleY(0.2);
   }
   91% {
+    transform: scaleY(1);
+  }
+  92% {
+    transform: scaleY(0.2);
+  }
+  94% {
     transform: scaleY(1);
   }
 }

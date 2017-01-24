@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Listitem from './components/Listitem';
 import Header from './components/Header';
 import Footer from './components/Footer';
-// import Maps from './components/Map';
+import Maps from './components/Map';
 import AddDebt from './components/AddDebt';
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        {/* <Map/> */}
+        <Maps width={'100vw'} height={'6rem'}/>
         {this.state.route === 'home' &&
           this.state.data.map((list, i) => (
             <Listitem

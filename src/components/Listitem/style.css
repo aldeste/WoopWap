@@ -6,6 +6,4 @@
     font-size: 1.1em;
     justify-content: space-between;
 }
-.item p:last-child{
-    border-top: 1px solid var(--neutral);
-}
+

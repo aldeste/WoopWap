@@ -1,0 +1,14 @@
+.nav {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 3rem;
+  background: var(--accent);
+}
+
+.tab {
+  color: var(--background);
+}

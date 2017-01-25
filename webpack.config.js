@@ -11,7 +11,7 @@ const PATHS = {
 process.env.BABEL_ENV = ENV;
 
 const common = {
-  entry: PATHS.src,
+  entry: ['whatwg-fetch', PATHS.src],
   output: { path: PATHS.build, filename: 'bundle.js' },
   module: {
     loaders: [

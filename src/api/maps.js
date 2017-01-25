@@ -1,4 +1,4 @@
-const API_KEY = 'AIzaSyAgTDmKOjvYu4i_-aFOh4bTM7lQFCamEZs';
+const API_KEY = 'AIzaSyAomE92YJuMz4wnWdZxVEZ7Oy5U8tHRYIw';
 const GEO_URL = 'https://maps.googleapis.com/maps/api/geocode/';
 const MAP_URL = 'https://maps.googleapis.com/maps/api/';
 const GEOLOCATION_URL = `https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDCa1LUe1vOczX1hO_iGYgyo8p_jYuGOPU`;

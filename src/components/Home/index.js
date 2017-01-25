@@ -3,23 +3,9 @@ import Tappable from 'react-tappable';
 import Loader from '../../HOC/Loader';
 import Maps from '../Map';
 import Listitem from '../Listitem';
+import calculateDistance from './Helpers/distances';
 
 class Home extends Component {
-  calculateDistance(pos1, pos2) {
-    const {lat, lng} = pos1;
-    const lat2 = pos2.lat;
-    const lng2 = pos2.lng;
-    const R = 6371; // Radius of the earth in km
-    const dLat = (lat2 - lat) * Math.PI / 180;
-    const dLng = (lng2 - lng) * Math.PI / 180;
-    const a =
-       0.5 - Math.cos(dLat)/2 +
-       Math.cos(lat * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-       (1 - Math.cos(dLng))/2;
-
-    return R * 2 * Math.asin(Math.sqrt(a));
-  }
-
   render() {
     return (
       <div>
@@ -34,7 +20,7 @@ class Home extends Component {
             entry =>
             Object.assign(
               {
-                distance: this.calculateDistance(
+                distance: calculateDistance(
                     this.props.position,
                     entry.location,
                 ),

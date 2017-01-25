@@ -8,20 +8,31 @@
             "last 4 chrome version",
             "last 4 safari version",
             "last 4 iOS version",
-          ]
+          ],
         },
         "modules": false,
-        "loose": true
-      }
+        "loose": true,
+      },
     ],
     "stage-0",
-    "react"
+    "react",
   ],
   "env": {
-    "development": {
+    "test": {
       "presets": [
-        "react-hmre"
-      ]
-    }
+        [
+          "env", { "loose": true },
+        ],
+        "stage-0",
+        "react",
+      ],
+    },
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types",
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
+      ],
+    },
   }
 }

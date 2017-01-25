@@ -21,7 +21,7 @@ class App extends Component {
   componentWillMount() {
     navigator.geolocation.getCurrentPosition(
       position =>
-        setUserPosition({
+        this.setUserPosition({
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         }),

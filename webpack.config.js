@@ -55,7 +55,6 @@ if (ENV === 'development') {
       historyApiFallback: true,
       hot: true,
       inline: true,
-      progress: true,
       // Display only errors to reduce the amount of output.
       stats: 'errors-only',
       // Parse host and port from env so this is easy to customize.

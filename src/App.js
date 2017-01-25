@@ -61,27 +61,3 @@ class App extends Component {
   }
 }
 export default App;
-//   (
-//     <Maps
-//       width={'100vw'}
-//       height={'6rem'}
-//       center={this.state.position}
-//       markers={[ this.state.position ]}
-//     />
-//   )
-// }
-// {
-//   this.state.position &&
-//   this.state.data
-//   .map(entry => Object.assign({ distance: this.calculateDistance(this.state.position, entry.location) }, entry))
-//   .sort((a, b) => a.distance - b.distance)
-//   .map((list, i) => (
-//     <Tappable key={i}>
-//       <Listitem
-//         distance={`${list.distance.toFixed(2)}km`}
-//         address={list.address}
-//         price={`${list.price} kr`}
-//       />
-//     </Tappable>
-//   ))
-// }

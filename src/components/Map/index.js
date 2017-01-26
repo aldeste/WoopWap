@@ -1,10 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import GoogleMap from 'google-map-react';
 import Marker from './Marker';
+import Loader from '../../HOC/Loader';
 
 class Maps extends Component {
   static defaultProps = {
-    center: { lat: 59.938043, lng: 30.337157 },
     zoom: 14,
   };
 
@@ -94,4 +94,4 @@ class Maps extends Component {
   }
 }
 
-export default Maps;
+export default Loader(['center'])(Maps);

@@ -66,22 +66,21 @@ class Home extends Component {
           {this.props.data
             .filter(item => item.id === this.state.mission)
             .map(item => (
-              <div>
-              <Maps
-                width={'100vw'}
-                height={'6rem'}
-                center={ { lat:item.lat, lng: item.lng } }
-                markers={[ { lat:item.lat, lng: item.lng } ]}
-              />
-              <ViewItem
-                key={item.id}
-                title={item.name}
-                price={item.price}
-                address={item.address}
-                id={item.id}
-                onDelete={() => this.onDelete(item.id)}
-                onCancel={() => this.viewMission('')}
-              />
+              <div key={item.id}>
+                <Maps
+                  width={'100vw'}
+                  height={'6rem'}
+                  center={{ lat: parseInt(item.lat), lng: parseInt(item.lng)}}
+                  markers={[{lat: parseInt(item.lat), lng: parseInt(item.lng)}]}
+                />
+                <ViewItem
+                  title={item.name}
+                  price={item.price}
+                  address={item.address}
+                  id={item.id}
+                  onDelete={() => this.onDelete(item.id)}
+                  onCancel={() => this.viewMission('')}
+                />
               </div>
             ))}
         </div>

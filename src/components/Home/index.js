@@ -14,6 +14,11 @@ class Home extends Component {
     this.setState({ mission });
   }
 
+  onDelete(id) {
+    this.props.onDelete(id);
+    this.setState({mission: ''});
+  }
+
   render() {
     if (!this.state.mission) {
       return (
@@ -43,10 +48,11 @@ class Home extends Component {
             .sort((a, b) => a.distance - b.distance)
             .map((list, i) => (
               <Tappable key={i} onTap={() => this.viewMission(list.id)}>
+                {console.log(list)}
                 <Listitem
                   distance={`${list.distance.toFixed(2)}km`}
                   address={list.address}
-                  price={`${numberShortener(list.price)} kr`}
+                  price={`${numberShortener(list.amount)} kr`}
                 />
               </Tappable>
             ))}
@@ -66,7 +72,7 @@ class Home extends Component {
                 price={item.price}
                 address={item.address}
                 id={item.id}
-                onDelete={() => this.props.onDelete(item.id)}
+                onDelete={() => this.onDelete(item.id)}
                 onCancel={() => this.viewMission('')}
               />
             ))}
@@ -76,4 +82,4 @@ class Home extends Component {
   }
 }
 
-export default Loader([ 'position', 'data' ])(Home);
+export default Loader([ 'position' ])(Home);

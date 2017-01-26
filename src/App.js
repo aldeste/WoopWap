@@ -25,9 +25,10 @@ class App extends Component {
       postDebt(obj);
       //.then(data => this.setState({data}));
   }
+
   removeDebt(id) {
-    destroyDebt(id);
-    //.then(data => this.setState({data}));
+    destroyDebt(id)
+    this.setState({data: this.state.data.filter(item => item.id !== id)});
   }
 
   componentWillMount() {

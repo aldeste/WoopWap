@@ -3,15 +3,13 @@ import style from './style.css';
 
 class AddDebt extends Component {
   state = {
-    form: {
-      idNumber: '',
-      name: '',
-      email: '',
-      endDate: '',
-      amount: '',
-      reward: '',
-      nameOrCompany: 'person',
-    },
+    idNumber: '',
+    name: '',
+    email: '',
+    endDate: '',
+    amount: '',
+    reward: '',
+    nameOrCompany: 'person',
   };
   handleInputChange(event) {
     const { target } = event;
@@ -29,17 +27,6 @@ class AddDebt extends Component {
         </p>
         <div className={style.checkboxWrapper}>
           <div className={style.box}>
-            <label htmlFor="com">Organisation</label>
-            <input
-              type="radio"
-              name="nameOrCompany"
-              id="com"
-              value="company"
-              checked={this.state.nameOrCompany === 'company'}
-              onChange={event => this.handleInputChange(event)}
-            />
-          </div>
-          <div className={style.box}>
             <label htmlFor="per">Person</label>
             <input
               type="radio"
@@ -47,6 +34,17 @@ class AddDebt extends Component {
               id="per"
               value="person"
               checked={this.state.nameOrCompany === 'person'}
+              onChange={event => this.handleInputChange(event)}
+            />
+          </div>
+          <div className={style.box}>
+            <label htmlFor="com">Organisation</label>
+            <input
+              type="radio"
+              name="nameOrCompany"
+              id="com"
+              value="company"
+              checked={this.state.nameOrCompany === 'company'}
               onChange={event => this.handleInputChange(event)}
             />
           </div>

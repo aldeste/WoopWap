@@ -10,8 +10,8 @@ class ViewItem extends Component {
         <p>{this.props.price}</p>
         <p>{this.props.phone}</p>
         <p>{this.props.address}</p>
-        <Tappable onTap={() => this.props.onDelete()}><button>Remove</button></Tappable>
-        <Tappable onTap={() => this.props.onCancel()}><button>Cancel</button></Tappable>
+        <Tappable onTap={() => this.props.onDelete()}><button className={style.remove}>Remove</button></Tappable>
+        <Tappable onTap={() => this.props.onCancel()}><button className={style.return}>Return</button></Tappable>
       </div>
     );
   }

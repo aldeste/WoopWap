@@ -23,7 +23,7 @@ class AddDebt extends Component {
     return (
       <form className={style.form}>
         <h2>My information</h2>
-        <p>
+        <p className={style.p}>
           Are you representing a person or an organization?
         </p>
         <div className={style.checkboxWrapper}>

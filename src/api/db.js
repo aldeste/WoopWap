@@ -30,10 +30,10 @@ export function postDebt(vad ,obj) {
 }
 
 // function for updating one debt to db
-export function updateDebt(obj) {
+export function destroyDebt(obj) {
 
     //set url
-    const url = `${DB_DEBTS}?update`;
+    const url = `${DB_DEBTS}?remove`;
 
     // format obj to be able to send to db
     var data = new FormData();

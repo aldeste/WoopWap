@@ -5,15 +5,12 @@ export function getDebts() {
     const url = `${DB_DEBTS}?all`;
 
     return fetch(url, {
-        header: {
-            'Content-Type': 'x-www-form-urlencoded'
-        }
     })
         .then(response => response.json());
 }
 
 // function for posting one debt to db
-export function postDebt(obj) {
+export function postDebt(vad ,obj) {
 
     //set url
     const url = `${DB_DEBTS}?insert`;

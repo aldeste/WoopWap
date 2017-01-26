@@ -48,7 +48,6 @@ class Home extends Component {
             .sort((a, b) => a.distance - b.distance)
             .map((list, i) => (
               <Tappable key={i} onTap={() => this.viewMission(list.id)}>
-                {console.log(list)}
                 <Listitem
                   distance={`${list.distance.toFixed(2)}km`}
                   address={list.address}

@@ -24,7 +24,7 @@ export function postDebt(obj) {
     return fetch(url, {
         method: "POST",
         header: {
-            'Content-Type': 'x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
         body: data
     })

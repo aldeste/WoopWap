@@ -2,3 +2,21 @@
   width: 95vw;
   margin: auto;
 }
+.remove, .return {
+    background: var(--neutral);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    outline: none;
+    font-size: 1.1em;
+}
+.remove {
+  margin-right: 10px;
+  background: var(--danger);
+}
+
+.remove:active, .return:active {
+    background: var(--main2);
+}

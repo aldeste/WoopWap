@@ -52,15 +52,15 @@ export function destroyDebt(obj) {
 }
 
 // function for getting borrowers from db
-export function getBorrowers() {
+/*export function getBorrowers() {
     return fetch(URL_BORROWERS, {
         })
             .then(response => response.json());
-}
+}*/
 
 // function for getting debtGivers from db
-export function getDebtGivers() {
+/*export function getDebtGivers() {
     return fetch(URL_DEBTGIVERS, {
     })
         .then(response => response.json());
-}
+}*/

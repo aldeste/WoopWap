@@ -32,19 +32,18 @@ export function postDebt(obj) {
 }
 
 // function for updating one debt to db
-export function destroyDebt(obj) {
-
+export function destroyDebt(id) {
     //set url
-    const url = `${DB_DEBTS}?remove`;
+    const url = `${DB_DEBTS}?delete`;
 
     // format obj to be able to send to db
     var data = new FormData();
-    data.append("json", JSON.stringify( obj ));
+    data.append('id', id);
 
     return fetch(url, {
         method: "POST",
         header: {
-            'Content-Type': 'x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
         body: data
     })

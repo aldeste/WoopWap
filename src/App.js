@@ -5,7 +5,7 @@ import AddDebt from './components/AddDebt';
 import ViewItem from './components/ViewItem';
 import Home from './components/Home';
 import data from './dummydata';
-import {getDebts, postDebt} from './api/db';
+import {getDebts, postDebt, destroyDebt} from './api/db';
 
 
 import { geolocationFallback } from './api/maps';
@@ -59,7 +59,11 @@ class App extends Component {
         <Header />
         {
           this.state.route === 'home' &&
-            <Home data={this.state.data} position={this.state.position} onDelete={id => this.removeDebt(id)}/>
+            <Home
+              data={this.state.data}
+              position={this.state.position}
+              onDelete={id => this.removeDebt(id)}
+            />
         }
         {this.state.route === 'add' && <AddDebt onAdd={obj => this.addDebt(obj)}/>}
         <Footer

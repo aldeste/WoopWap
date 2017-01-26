@@ -4,6 +4,7 @@ import Loader from '../../HOC/Loader';
 import Maps from '../Map';
 import Listitem from '../Listitem';
 import calculateDistance from './Helpers/distances';
+import numberShortener from './Helpers/numberShortener';
 
 class Home extends Component {
   render() {
@@ -34,7 +35,7 @@ class Home extends Component {
               <Listitem
                 distance={`${list.distance.toFixed(2)}km`}
                 address={list.address}
-                price={`${list.price} kr`}
+                price={`${numberShortener(list.price)} kr`}
               />
             </Tappable>
           ))}

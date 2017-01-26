@@ -60,6 +60,13 @@ class Home extends Component {
           {this.props.data
             .filter(item => item.id === this.state.mission)
             .map(item => (
+              <div>
+              <Maps
+                width={'100vw'}
+                height={'6rem'}
+                center={ { lat:item.lat, lng: item.lng } }
+                markers={[ { lat:item.lat, lng: item.lng } ]}
+              />
               <ViewItem
                 key={item.id}
                 title={item.name}
@@ -69,6 +76,7 @@ class Home extends Component {
                 onDelete={() => this.props.onDelete(item.id)}
                 onCancel={() => this.viewMission('')}
               />
+              </div>
             ))}
         </div>
       );

@@ -50,8 +50,6 @@ export function destroyDebt(obj) {
     })
     .then(response => response.json());
 }
-<<<<<<< HEAD
-=======
 
 // function for getting borrowers from db
 /*export function getBorrowers() {
@@ -66,4 +64,3 @@ export function destroyDebt(obj) {
     })
         .then(response => response.json());
 }*/
->>>>>>> c388b19934bb32cc6c871df6456e8d1102982931

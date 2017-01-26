@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AddDebt from './components/AddDebt';
+import ViewItem from './components/ViewItem';
 import Home from './components/Home';
 import data from './dummydata';
+import {getDebts} from './api/db';
+
 
 import { geolocationFallback } from './api/maps';
 
@@ -37,6 +40,8 @@ class App extends Component {
           this.setUserPosition({ lat: 59.334591, lng: 18.063240 });
         }),
     );
+
+    // getDebts().then(data => this.setState({data}));
   }
 
   render() {

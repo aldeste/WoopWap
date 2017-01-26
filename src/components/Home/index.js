@@ -5,43 +5,75 @@ import Maps from '../Map';
 import Listitem from '../Listitem';
 import calculateDistance from './Helpers/distances';
 import numberShortener from './Helpers/numberShortener';
+import ViewItem from '../ViewItem';
 
 class Home extends Component {
+  state = { mission: '' };
+
+  viewMission(mission) {
+    this.setState({ mission });
+  }
+
   render() {
-    return (
-      <div>
-        <Maps
-          width={'100vw'}
-          height={'6rem'}
-          center={this.props.position}
-          markers={[ this.props.position ]}
-        />
-        {this.props.data
-          .map(
-            entry =>
-            Object.assign(
-              {
-                distance: calculateDistance(
+    if (!this.state.mission) {
+      return (
+        <div>
+          <Maps
+            width={'100vw'}
+            height={'6rem'}
+            center={this.props.position}
+            markers={[ this.props.position ]}
+          />
+          {this.props.data
+            .map(entry => {
+              const location = {
+                lat: entry.lat,
+                lng: entry.lng,
+              }
+              return Object.assign(
+                {
+                  distance: calculateDistance(
                     this.props.position,
-                    entry.location,
-                ),
-              },
+                    location,
+                  ),
+                },
                 entry,
-            ),
-          )
-          .sort((a, b) => a.distance - b.distance)
-          .map((list, i) => (
-            <Tappable key={i}>
-              <Listitem
-                distance={`${list.distance.toFixed(2)}km`}
-                address={list.address}
-                price={`${numberShortener(list.price)} kr`}
+              );
+            })
+            .sort((a, b) => a.distance - b.distance)
+            .map((list, i) => (
+              <Tappable key={i} onTap={() => this.viewMission(list.id)}>
+                <Listitem
+                  distance={`${list.distance.toFixed(2)}km`}
+                  address={list.address}
+                  price={`${numberShortener(list.price)} kr`}
+                />
+              </Tappable>
+            ))}
+        </div>
+      );
+    }
+
+    if (this.state.mission) {
+      return (
+        <div>
+          {this.props.data
+            .filter(item => item.id === this.state.mission)
+            .map(item => (
+              <ViewItem
+                key={item.id}
+                title={item.name}
+                price={item.price}
+                address={item.address}
+                id={item.id}
+                onDelete={() => console.log('aha')}
+                onCancel={() => this.viewMission('')}
               />
-            </Tappable>
-          ))}
-      </div>
-    );
+            ))}
+        </div>
+      );
+    }
   }
 }
 
-export default Loader(['position', 'data'])(Home);
+export default Loader([ 'position', 'data' ])(Home);

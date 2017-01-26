@@ -22,6 +22,7 @@ class AddDebt extends Component {
   render() {
     return (
       <form className={style.form}>
+        <h2>My information</h2>
         <p>
           Are you representing a person or an organization?
         </p>
@@ -75,6 +76,8 @@ class AddDebt extends Component {
           value={this.state.email}
           onChange={event => this.handleInputChange(event)}
         />
+
+        <h2>Debt information</h2>
         <label className={style.label}>Borrowers Name</label>
         <input
           className={style.input}

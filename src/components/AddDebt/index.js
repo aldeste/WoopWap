@@ -12,6 +12,7 @@ class AddDebt extends Component {
     reward: '',
     nameOrCompany: 'person',
   };
+
   handleInputChange(event) {
     const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -23,7 +24,7 @@ class AddDebt extends Component {
   render() {
     return (
       <form className={style.form}>
-        <h2>My information</h2>
+        <h2>Your information</h2>
         <p className={style.p}>
           Are you representing a person or an organization?
         </p>
@@ -124,7 +125,9 @@ class AddDebt extends Component {
           value={this.state.reward}
           onChange={event => this.handleInputChange(event)}
         />
-        <input className={style.submit} type="submit" value="Add debt" />
+        <Tappable onTap={() => this.props.onAdd(this.state)}>
+          <input className={style.submit} type="submit" value="Add debt" />
+        </Tappable>
       </form>
     );
   }

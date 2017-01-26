@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import style from './style.css';
+import Tappable from 'react-tappable';
 
 class AddDebt extends Component {
   state = {
@@ -123,7 +124,7 @@ class AddDebt extends Component {
           value={this.state.reward}
           onChange={event => this.handleInputChange(event)}
         />
-        <input className={style.submit} type="submit" value="Submit" />
+        <input className={style.submit} type="submit" value="Add debt" />
       </form>
     );
   }

@@ -21,6 +21,10 @@ class App extends Component {
     this.setState({ position });
   }
 
+  addDebt(obj) {
+      postDebt(obj).then(data => this.setState({data}));
+  }
+
   componentWillMount() {
     navigator.geolocation.getCurrentPosition(
       position =>

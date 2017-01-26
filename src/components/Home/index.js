@@ -49,7 +49,7 @@ class Home extends Component {
             .map((list, i) => (
               <Tappable key={i} onTap={() => this.viewMission(list.id)}>
                 {console.log(list)}
-                <Listitem
+                <Listitem 
                   distance={`${list.distance.toFixed(2)}km`}
                   address={list.address}
                   price={`${numberShortener(list.amount)} kr`}

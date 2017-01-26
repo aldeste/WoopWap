@@ -50,7 +50,7 @@ class App extends Component {
         }),
     );
 
-    // getDebts().then(data => this.setState({data}));
+    getDebts().then(data => this.setState({data}));
   }
 
   render() {

@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   addDebt(obj) {
-      postDebt(obj).then(data => this.setState({data}));
+    postDebt(obj).then(data => this.setState({data}));
   }
 
   componentWillMount() {
@@ -45,7 +45,7 @@ class App extends Component {
         }),
     );
 
-    // getDebts().then(data => this.setState({data}));
+    getDebts().then(data => this.setState({data}));
   }
 
   render() {

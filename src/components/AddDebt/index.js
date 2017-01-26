@@ -4,12 +4,17 @@ import Tappable from 'react-tappable';
 
 class AddDebt extends Component {
   state = {
-    idNumber: '',
-    name: '',
-    email: '',
-    endDate: '',
+    loanDate: new Date(),
+    dueDate: '',
     amount: '',
     reward: '',
+    borrower: '',
+    debtGiver: '',
+    email: '',
+    address: '',
+    city: '',
+    phone: '',
+    personnr: '',
     nameOrCompany: 'person',
   };
   handleInputChange(event) {
@@ -64,8 +69,8 @@ class AddDebt extends Component {
         <input
           className={style.input}
           type="text"
-          name="name"
-          value={this.state.name}
+          name="debtGiver"
+          value={this.state.debtGiver}
           onChange={event => this.handleInputChange(event)}
         />
         <label className={style.label}>Email</label>
@@ -83,27 +88,45 @@ class AddDebt extends Component {
         <input
           className={style.input}
           type="text"
-          name="borrowersName"
+          name="borrower"
           required
-          value={this.state.borrowersName}
+          value={this.state.borrower}
           onChange={event => this.handleInputChange(event)}
         />
         <label className={style.label}>Borrowers Adress</label>
         <input
           className={style.input}
           type="text"
-          name="borrowersAdress"
+          name="address"
           required
-          value={this.state.borrowersAdress}
+          value={this.state.address}
+          onChange={event => this.handleInputChange(event)}
+        />
+        <label className={style.label}>Borrower City</label>
+        <input
+          className={style.input}
+          type="text"
+          name="city"
+          required
+          value={this.state.city}
+          onChange={event => this.handleInputChange(event)}
+        />
+        <label className={style.label}>Borrower Phone</label>
+        <input
+          className={style.input}
+          type="text"
+          name="phone"
+          required
+          value={this.state.phone}
           onChange={event => this.handleInputChange(event)}
         />
         <label className={style.label}>Loan expired</label>
         <input
           className={style.input}
           type="date"
-          name="endDate"
+          name="dueDate"
           required
-          value={this.state.endDate}
+          value={this.state.dueDate}
           onChange={event => this.handleInputChange(event)}
         />
         <label className={style.label}>Amount</label>

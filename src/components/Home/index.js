@@ -66,7 +66,7 @@ class Home extends Component {
                 price={item.price}
                 address={item.address}
                 id={item.id}
-                onDelete={() => console.log('aha')}
+                onDelete={() => this.props.onDelete(item.id)}
                 onCancel={() => this.viewMission('')}
               />
             ))}

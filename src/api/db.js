@@ -4,7 +4,11 @@ const DB_DEBTS = 'http://nuwn.net/schoolapi/debt.php';  //url to db
 export function getDebts() {
     const url = `${DB_DEBTS}?all`;
 
-    return fetch(url)
+    return fetch(url, {
+        header: {
+            'Content-Type': 'x-www-form-urlencoded'
+        }
+    })
         .then(response => response.json());
 }
 
@@ -20,6 +24,9 @@ export function postDebt(obj) {
 
     return fetch(url, {
         method: "POST",
+        header: {
+            'Content-Type': 'x-www-form-urlencoded'
+        },
         body: data
     })
     .then(response => response.json());
@@ -37,6 +44,9 @@ export function updateDebt(obj) {
 
     return fetch(url, {
         method: "POST",
+        header: {
+            'Content-Type': 'x-www-form-urlencoded'
+        },
         body: data
     })
     .then(response => response.json());

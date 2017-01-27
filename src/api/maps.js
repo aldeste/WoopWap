@@ -10,7 +10,8 @@ export function fetchLocation(address) {
 
   return fetch(url)
     .then(response => response.json())
-    .then(resp => resp.results[0].geometry.location);
+    .then(resp => resp.results[0].geometry.location)
+    .catch(err => console.err(err));
 }
 
 /**

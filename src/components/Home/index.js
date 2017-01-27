@@ -17,7 +17,7 @@ class Home extends Component {
 
   onDelete(id) {
     this.props.onDelete(id);
-    this.setState({mission: ''});
+    this.setState({ mission: '' });
   }
 
   render() {
@@ -32,23 +32,19 @@ class Home extends Component {
           />
           {this.props.data
             .map(entry => {
-              const location = {
-                lat: entry.lat,
-                lng: entry.lng,
-              }
+              const location = { lat: entry.lat, lng: entry.lng };
               return Object.assign(
-                {
-                  distance: calculateDistance(
-                    this.props.position,
-                    location,
-                  ),
-                },
+                { distance: calculateDistance(this.props.position, location) },
                 entry,
               );
             })
             .sort((a, b) => a.distance - b.distance)
             .map((list, i) => (
-              <Tappable key={i} onTap={() => this.viewMission(list.id)} className={style.listItem}>
+              <Tappable
+                key={i}
+                onTap={() => this.viewMission(list.id)}
+                className={style.listItem}
+              >
                 <Listitem
                   distance={`${list.distance.toFixed(2)}km`}
                   address={list.address}
@@ -70,18 +66,18 @@ class Home extends Component {
                 <Maps
                   width={'100vw'}
                   height={'6rem'}
-                  center={{ lat: parseFloat(item.lat), lng: parseFloat(item.lng)}}
-                  markers={[{lat: parseFloat(item.lat), lng: parseFloat(item.lng)}]}
+                  center={{
+                    lat: parseFloat(item.lat),
+                    lng: parseFloat(item.lng),
+                  }}
+                  markers={[
+                    { lat: parseFloat(item.lat), lng: parseFloat(item.lng) },
+                  ]}
                 />
                 <ViewItem
-                  title={item.name}
-                  price={item.price}
-                  address={item.address}
-                  email={item.email}
-                  phone={item.phone}
-                  id={item.id}
                   onDelete={() => this.onDelete(item.id)}
                   onCancel={() => this.viewMission('')}
+                  {...item}
                 />
               </div>
             ))}

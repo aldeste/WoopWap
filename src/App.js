@@ -5,10 +5,8 @@ import AddDebt from './components/AddDebt';
 import ViewItem from './components/ViewItem';
 import Home from './components/Home';
 import data from './dummydata';
-import {getDebts, postDebt, destroyDebt} from './api/db';
-
-
-import { geolocationFallback } from './api/maps';
+import { getDebts, postDebt, destroyDebt } from './api/db';
+import { geolocationFallback, fetchLocation } from './api/maps';
 
 class App extends Component {
   state = { route: 'home', data };
@@ -22,13 +20,22 @@ class App extends Component {
   }
 
   addDebt(obj) {
-      postDebt(obj);
-      //.then(data => this.setState({data}));
+    fetchLocation(`${obj.address},+${obj.city}`).then(position => {
+      const { lat, lng } = position;
+
+      this.setState({
+        route: 'home',
+        data: this.state.data.concat([
+          Object.assign(obj, { id: this.state.data.length, lat, lng }),
+        ]),
+      });
+    });
+    postDebt(obj);
   }
 
   removeDebt(id) {
-    destroyDebt(id)
-    this.setState({data: this.state.data.filter(item => item.id !== id)});
+    destroyDebt(id).catch(err => console.err(err));
+    this.setState({ data: this.state.data.filter(item => item.id !== id) });
   }
 
   componentWillMount() {
@@ -51,22 +58,22 @@ class App extends Component {
         }),
     );
 
-    getDebts().then(data => this.setState({data}));
+    getDebts().then(data => this.setState({ data }));
   }
 
   render() {
+    const Body = () => this.state.route === 'home'
+      ? <Home
+        data={this.state.data}
+        position={this.state.position}
+        onDelete={id => this.removeDebt(id)}
+        />
+      : <AddDebt onAdd={obj => this.addDebt(obj)} />;
+
     return (
       <div>
         <Header />
-        {
-          this.state.route === 'home' &&
-            <Home
-              data={this.state.data}
-              position={this.state.position}
-              onDelete={id => this.removeDebt(id)}
-            />
-        }
-        {this.state.route === 'add' && <AddDebt onAdd={obj => this.addDebt(obj)}/>}
+        <Body />
         <Footer
           onTap={route => this.changeRoute(route)}
           routes={[

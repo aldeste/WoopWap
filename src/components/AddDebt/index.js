@@ -4,7 +4,7 @@ import Tappable from 'react-tappable';
 
 class AddDebt extends Component {
   state = {
-    loanDate: new Date(),
+    loanDate: '2017-01-26',
     dueDate: '',
     amount: '',
     reward: '',
@@ -28,7 +28,7 @@ class AddDebt extends Component {
 
   render() {
     return (
-      <form className={style.form}>
+      <form className={style.form} onSubmit={event => event.preventDefault()} >
         <h2>Your information</h2>
         <p className={style.p}>
           Are you representing a person or an organization?
@@ -61,8 +61,8 @@ class AddDebt extends Component {
         <input
           className={style.input}
           type="text"
-          name="idNumber"
-          value={this.state.idNumber}
+          name="personnr"
+          value={this.state.personnr}
           onChange={event => this.handleInputChange(event)}
           required
         />
@@ -133,7 +133,7 @@ class AddDebt extends Component {
         <label className={style.label}>Amount</label>
         <input
           className={style.input}
-          type="text"
+          type="number"
           name="amount"
           required
           value={this.state.amount}
@@ -142,14 +142,14 @@ class AddDebt extends Component {
         <label className={style.label}>Reward</label>
         <input
           className={style.input}
-          type="text"
+          type="number"
           name="reward"
           required
           value={this.state.reward}
           onChange={event => this.handleInputChange(event)}
         />
-        <Tappable onTap={() => this.props.onAdd(this.state)}>
-          <input className={style.submit} type="submit" value="Add debt" />
+        <Tappable onTap={event => this.props.onAdd(this.state)}>
+          <input className={style.submit} type="submit" value="Add debt"/>
         </Tappable>
       </form>
     );

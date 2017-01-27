@@ -6,6 +6,7 @@ import Listitem from '../Listitem';
 import calculateDistance from './Helpers/distances';
 import numberShortener from './Helpers/numberShortener';
 import ViewItem from '../ViewItem';
+import style from './style.css';
 
 class Home extends Component {
   state = { mission: '' };
@@ -47,7 +48,7 @@ class Home extends Component {
             })
             .sort((a, b) => a.distance - b.distance)
             .map((list, i) => (
-              <Tappable key={i} onTap={() => this.viewMission(list.id)}>
+              <Tappable key={i} onTap={() => this.viewMission(list.id)} className={style.listItem}>
                 <Listitem
                   distance={`${list.distance.toFixed(2)}km`}
                   address={list.address}

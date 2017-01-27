@@ -1,6 +1,5 @@
 .item {
     display: flex;
-    border-bottom: 1px solid var(--neutral);
     padding: 0.4em;
     font-weight: 200;
     font-size: 1.1em;

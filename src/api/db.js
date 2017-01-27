@@ -13,22 +13,22 @@ export function getDebts() {
 
 // function for posting one debt to db
 export function postDebt(obj) {
-
     //set url
     const url = `${DB_DEBTS}?insert`;
 
-    // format obj to be able to send to db
     var data = new FormData();
-    data.append("json", JSON.stringify( obj ));
+
+    for (const key in obj) {
+        data.append(key, obj[key]);
+    }
 
     return fetch(url, {
         method: "POST",
         header: {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
-        body: data
-    })
-    .then(response => response.json());
+        body: data,
+    });
 }
 
 // function for updating one debt to db
@@ -46,8 +46,7 @@ export function destroyDebt(id) {
             'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
         body: data
-    })
-    .then(response => response.json());
+    });
 }
 
 // function for getting borrowers from db

@@ -2,21 +2,37 @@
   width: 95vw;
   margin: auto;
 }
-.remove, .return {
-    background: var(--neutral);
-    border: none;
-    border-radius: 3px;
-    color: white;
-    padding: 10px;
-    margin-top: 15px;
-    outline: none;
-    font-size: 1.1em;
+
+.return {
+  background: var(--neutral);
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 10px;
+  margin-top: 15px;
+  outline: none;
+  font-size: 1.1em;
 }
+
 .remove {
+  composes: return;
   margin-right: 10px;
   background: var(--danger);
 }
 
-.remove:active, .return:active {
-    background: var(--main2);
+.return:active {
+  background: var(--main2);
+}
+
+.title {
+  font-size: 15vmin;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.subheader {
+  composes: title;
+  font-size: 10vmin;
+  margin-top: 1em;
 }

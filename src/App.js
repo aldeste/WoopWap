@@ -7,6 +7,7 @@ import Home from './components/Home';
 import data from './dummydata';
 import { getDebts, postDebt, destroyDebt } from './api/db';
 import { geolocationFallback, fetchLocation } from './api/maps';
+import style from './style.css';
 
 class App extends Component {
   state = { route: 'home', data };
@@ -80,7 +81,9 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Body />
+        <div className={style.container}>
+          <Body />
+        </div>
         <Footer
           onTap={route => this.changeRoute(route)}
           routes={[

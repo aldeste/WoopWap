@@ -13,7 +13,6 @@ class ViewItem extends Component {
         <h2>Mission given by</h2>
         <p>{this.props.givername} </p>
         <p>{this.props.email}</p>
-        <p>Start date: {this.props.loanDate}</p>
         <p>Due date: {this.props.dueDate}</p>
         <Tappable onTap={() => this.props.onDelete()}>
           <button className={style.remove}>Remove</button>

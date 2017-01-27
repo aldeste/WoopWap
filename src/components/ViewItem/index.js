@@ -6,22 +6,15 @@ class ViewItem extends Component {
   render() {
     return (
       <div className={style.container}>
-        <h1>{this.props.title}</h1>
+        <h1>{this.props.name}</h1>
         <p>{this.props.amount} kr</p>
-        <p>Telefon: {this.props.phone}</p>
-        <p>Adress: {this.props.address}, {this.props.city}</p>
-        <p>Loan provider: {this.props.debtGiver} </p>
-        <p>Start datum: {this.props.loanDate}</p>
-        <p>Slut datum: {this.props.dueDate}</p>
-        {
-          process.env !== 'production' &&
-          (
-            <p>
-              Webpack will automatically remove this debug info in production.{' '}
-              {JSON.stringify(this.props)}
-            </p>
-          )
-        }
+        <p>phone: {this.props.phone}</p>
+        <p>adress: {this.props.address}, {this.props.city}</p>
+        <h2>Mission given by</h2>
+        <p>{this.props.givername} </p>
+        <p>{this.props.email}</p>
+        <p>Start date: {this.props.loanDate}</p>
+        <p>Due date: {this.props.dueDate}</p>
         <Tappable onTap={() => this.props.onDelete()}>
           <button className={style.remove}>Remove</button>
         </Tappable>

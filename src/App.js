@@ -26,7 +26,13 @@ class App extends Component {
       this.setState({
         route: 'home',
         data: this.state.data.concat([
-          Object.assign(obj, { id: this.state.data.length, lat, lng }),
+          Object.assign(obj, {
+            id: this.state.data.length,
+            lat,
+            lng,
+            givername: obj.debtGiver,
+            name: obj.borrower,
+          }),
         ]),
       });
     });
@@ -62,13 +68,14 @@ class App extends Component {
   }
 
   render() {
-    const Body = () => this.state.route === 'home'
-      ? <Home
-        data={this.state.data}
-        position={this.state.position}
-        onDelete={id => this.removeDebt(id)}
+    const Body = () =>
+      this.state.route === 'home'
+        ? <Home
+          data={this.state.data}
+          position={this.state.position}
+          onDelete={id => this.removeDebt(id)}
         />
-      : <AddDebt onAdd={obj => this.addDebt(obj)} />;
+        : <AddDebt onAdd={obj => this.addDebt(obj)} />;
 
     return (
       <div>

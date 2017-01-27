@@ -8,6 +8,7 @@ class Listitem extends Component {
         <p className={style.address}>{this.props.address}</p>
         <p>{this.props.price}</p>
         <p className={style.distance}>{this.props.distance}</p>
+        <p>{this.props.email}</p>
       </div>
     );
   }

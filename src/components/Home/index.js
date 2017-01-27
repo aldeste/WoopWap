@@ -70,13 +70,15 @@ class Home extends Component {
                 <Maps
                   width={'100vw'}
                   height={'6rem'}
-                  center={{ lat: parseInt(item.lat), lng: parseInt(item.lng)}}
-                  markers={[{lat: parseInt(item.lat), lng: parseInt(item.lng)}]}
+                  center={{ lat: parseFloat(item.lat), lng: parseFloat(item.lng)}}
+                  markers={[{lat: parseFloat(item.lat), lng: parseFloat(item.lng)}]}
                 />
                 <ViewItem
                   title={item.name}
                   price={item.price}
                   address={item.address}
+                  email={item.email}
+                  phone={item.phone}
                   id={item.id}
                   onDelete={() => this.onDelete(item.id)}
                   onCancel={() => this.viewMission('')}

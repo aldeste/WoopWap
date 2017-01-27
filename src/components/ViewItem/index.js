@@ -13,9 +13,21 @@ class ViewItem extends Component {
         <p>Loan provider: {this.props.debtGiver} </p>
         <p>Start datum: {this.props.loanDate}</p>
         <p>Slut datum: {this.props.dueDate}</p>
-        {process.env !== 'production' && <p>Webpack will automatically remove this debug info in production. {JSON.stringify(this.props)}</p>}
-        <Tappable onTap={() => this.props.onDelete()}><button className={style.remove}>Remove</button></Tappable>
-        <Tappable onTap={() => this.props.onCancel()}><button className={style.return}>Return</button></Tappable>
+        {
+          process.env !== 'production' &&
+          (
+            <p>
+              Webpack will automatically remove this debug info in production.{' '}
+              {JSON.stringify(this.props)}
+            </p>
+          )
+        }
+        <Tappable onTap={() => this.props.onDelete()}>
+          <button className={style.remove}>Remove</button>
+        </Tappable>
+        <Tappable onTap={() => this.props.onCancel()}>
+          <button className={style.return}>Return</button>
+        </Tappable>
       </div>
     );
   }

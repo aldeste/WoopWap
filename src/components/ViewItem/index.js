@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Tappable from 'react-tappable';
 import style from './style.css';
+import { Link } from 'react-router';
 
 class ViewItem extends Component {
   render() {
@@ -15,12 +16,12 @@ class ViewItem extends Component {
         <h2 className={style.subheader}>Mission given by</h2>
         <p>{this.props.givername} </p>
         <p>{this.props.email}</p>
-        <Tappable onTap={() => this.props.onDelete()}>
+        <Link to={() => this.props.onDelete()}>
           <button className={style.remove}>Remove</button>
-        </Tappable>
-        <Tappable onTap={() => this.props.onCancel()}>
+        </Link>
+        <Link to='/'>
           <button className={style.return}>Return</button>
-        </Tappable>
+        </Link>
       </div>
     );
   }

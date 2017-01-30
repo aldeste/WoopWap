@@ -4,10 +4,12 @@ import Footer from './components/Footer';
 import AddDebt from './components/AddDebt';
 import ViewItem from './components/ViewItem';
 import Home from './components/Home';
+import Mission from './components/Home/Mission';
 import data from './dummydata';
 import { getDebts, postDebt, destroyDebt } from './api/db';
 import { geolocationFallback, fetchLocation } from './api/maps';
 import style from './style.css';
+import { BrowserRouter, Link, Match } from 'react-router';
 
 class App extends Component {
   state = { route: 'home', data };
@@ -69,30 +71,31 @@ class App extends Component {
   }
 
   render() {
-    const Body = () =>
-      this.state.route === 'home'
-        ? <Home
-          data={this.state.data}
-          position={this.state.position}
-          onDelete={id => this.removeDebt(id)}
-        />
-        : <AddDebt onAdd={obj => this.addDebt(obj)} />;
+    const Main = () => (
+      <Home
+        data={this.state.data}
+        position={this.state.position}
+        onDelete={id => this.removeDebt(id)}
+      />
+    );
+    const addDebt = () => <AddDebt onAdd={obj => this.addDebt(obj)} />;
 
     return (
-      <div>
-        <Header />
-        <div className={style.container}>
-          <Body />
+      <BrowserRouter>
+        <div>
+          <Header />
+          <div className={style.container}>
+            <Match exactly pattern="/" component={Main} />
+            <Match exactly pattern="/home" component={Main} />
+            <Match exactly pattern="/add" component={addDebt} />
+            <Match pattern="/mission" component={Mission} />
+          </div>
+          <Footer
+            onTap={route => this.changeRoute(route)}
+            hide={this.state.route}
+          />
         </div>
-        <Footer
-          onTap={route => this.changeRoute(route)}
-          routes={[
-            { text: 'Add stuff', route: 'add' },
-            { text: 'Browse', route: 'home' },
-          ]}
-          hide={this.state.route}
-        />
-      </div>
+      </BrowserRouter>
     );
   }
 }

@@ -7,83 +7,47 @@ import calculateDistance from './Helpers/distances';
 import numberShortener from './Helpers/numberShortener';
 import ViewItem from '../ViewItem';
 import style from './style.css';
+import { Link } from 'react-router';
 
 class Home extends Component {
-  state = { mission: '' };
-
-  viewMission(mission) {
-    this.setState({ mission });
-  }
-
   onDelete(id) {
     this.props.onDelete(id);
     this.setState({ mission: '' });
   }
 
   render() {
-    if (!this.state.mission) {
-      return (
-        <div>
-          <Maps
-            width={'100vw'}
-            height={'6rem'}
-            center={this.props.position}
-            markers={[ this.props.position ]}
-          />
-          {this.props.data
-            .map(entry => {
-              const location = { lat: entry.lat, lng: entry.lng };
-              return Object.assign(
-                { distance: calculateDistance(this.props.position, location) },
-                entry,
-              );
-            })
-            .sort((a, b) => a.distance - b.distance)
-            .map((list, i) => (
-              <Tappable
-                key={i}
-                onTap={() => this.viewMission(list.id)}
-                className={style.listItem}
-              >
-                <Listitem
-                  distance={`${list.distance.toFixed(2)}km`}
-                  address={list.address}
-                  price={`${numberShortener(list.amount)} kr`}
-                />
-              </Tappable>
-            ))}
-        </div>
-      );
-    }
-
-    if (this.state.mission) {
-      return (
-        <div>
-          {this.props.data
-            .filter(item => item.id === this.state.mission)
-            .map(item => (
-              <div key={item.id}>
-                <Maps
-                  width={'100vw'}
-                  height={'6rem'}
-                  center={{
-                    lat: parseFloat(item.lat),
-                    lng: parseFloat(item.lng),
-                  }}
-                  markers={[
-                    { lat: parseFloat(item.lat), lng: parseFloat(item.lng) },
-                  ]}
-                />
-                <ViewItem
-                  onDelete={() => this.onDelete(item.id)}
-                  onCancel={() => this.viewMission('')}
-                  {...item}
-                />
-              </div>
-            ))}
-        </div>
-      );
-    }
+    return (
+      <div>
+        <Maps
+          width={'100vw'}
+          height={'6rem'}
+          center={this.props.position}
+          markers={[ this.props.position ]}
+        />
+        {this.props.data
+          .map(entry => {
+            const location = { lat: entry.lat, lng: entry.lng };
+            return Object.assign(
+              { distance: calculateDistance(this.props.position, location) },
+              entry,
+            );
+          })
+          .sort((a, b) => a.distance - b.distance)
+          .map((list, i) => (
+            <Link
+              key={i}
+              to={{ pathname: '/mission/', query: { item: { ...list } } }}
+              className={style.listItem}
+            >
+              <Listitem
+                distance={`${list.distance.toFixed(2)}km`}
+                address={list.address}
+                price={`${numberShortener(list.amount)} kr`}
+              />
+            </Link>
+          ))}
+      </div>
+    );
   }
 }
 

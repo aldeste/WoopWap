@@ -1,26 +1,34 @@
 import React, { Component, PropTypes } from 'react';
-import Tappable from 'react-tappable';
 import style from './style.css';
 import { fetchLocation } from '../../api/maps';
+import { BrowserRouter, Link, Match } from 'react-router';
 
 class Footer extends Component {
   render() {
     return (
       <footer className={style.nav}>
-        {this.props.routes.map((c, i) => {
-          if (this.props.hide !== c.route) {
-            return (
-              <Tappable
-                key={i}
+        {
+          this.props.hide !== 'add' && (
+              <Link
                 className={style.tab}
-                classes={{ active: style.active }}
-                onTap={() => this.props.onTap(c.route)}
+                to="/add"
+                onClick={() => this.props.onTap('add')}
               >
-                {c.text}
-              </Tappable>
-            );
-          }
-        })}
+                Add stuff
+              </Link>
+            )
+        }
+        {
+          this.props.hide !== 'home' && (
+              <Link
+                className={style.tab}
+                to="/"
+                onClick={() => this.props.onTap('home')}
+              >
+                Browse
+              </Link>
+            )
+        }
       </footer>
     );
   }
